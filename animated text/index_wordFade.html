@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Morphext Example / Demo</title>
+        <meta name="description" content="A simple, high-performance and cross-browser jQuery rotating / carousel plugin for text phrases powered by Animate.css.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="animate.css">
+        <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script type="text/javascript" src="jquery.lettering-0.6.1.min.js"></script>
+        <script type="text/javascript" src="jquery.textillate.js"></script>
+        
+        <script>
+            
+            //var randomnumber = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1050; 
+        
+            $(document).ready(function() {
+                
+                var sentences, $el;
+                var arrEl = [];
+                //var randomnumber = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1050;            
+
+                // loop through each div and populate the array with the container (div) element and its text content split
+                $('.example').each(function(){
+                    var $this = $(this);
+                    arrEl.push({el:$this,sentences : $.trim($this.html()).split(".")});
+                    $this.empty();
+                    
+                });
+
+                //This will the startup function  
+                function fadeIn(){
+                    
+                    var len = arrEl.length,  obj = arrEl.shift() || {}; //get the top item from array and remove it from the array using array.shift
+                    $el = obj.el; //get the container from the item
+                    sentences = obj.sentences; //get the array of sentences  
+                    //if there are any items in the array start the animation process for this item.
+                    if (len > 0) 
+                        window.setTimeout(transitionElement, 0); 
+                }
+
+                function transitionElement(){
+                    var wlen = sentences.length,
+                    span = $('<span/>', {'class':'hide'}).append(sentences.shift() + ". "); //remove and get the top text string from the word array wrap it in span with a class "hide" which will hide it by default
+
+                    window.setTimeout(function() {
+                        if(wlen > 0)  //if sentences are available anymore then call show word
+                           showWord(span);
+                        else //else call fadeIn to process the next container in the arrEl array of items
+                            fadeIn();
+                    },0);
+                }
+
+                function showWord(span){
+                    var randomDuration = 0;
+                    while (randomDuration < 500 || randomDuration > 3000)
+                    {
+                        randomDuration = Math.random() * (3000 - 250 + 1) + 1000;
+                    }
+                    console.log(randomDuration);
+                    span.appendTo($el).fadeIn(randomDuration, startTextAnimation); // append the span to the container with an animation duration of 500ms and in the complete callback of this invoke transitionElement to process the next word or next item. Here there is no delay required since this will invoked only when the transition of first word is completed
+                }
+                
+                function startTextAnimation(){
+                    
+                    $('.tlt').textillate();
+                }
+                //Start animation process
+                fadeIn();
+                
+                $("#click-me").click(function(){
+                    transitionElement();
+                });
+                    
+            })
+                        
+        </script>
+        
+        <script>
+        
+            $(function () {
+                $('.tlt').textillate();
+            })
+        
+        </script>
+        
+    </head>
+    <body> 
+        
+        <!--<button id="click-me"></button>-->
+        <div id="click-me"></div>
+        
+        <!--<h1 class="tlt">
+            <ul class="texts">
+                <li data-out-effect="fadeOut" data-out-shuffle="true">Some Title</li>   
+                <li data-in-effect="fadeIn">Another Title</li>
+            </ul>
+        </h1>-->
+
+        <div class="example">
+            
+            The <span class="tlt" data-in-effect="wobble" data-in-sync="true">Balrog</span> reached the bridge. Gandalf stood in the <span class="tlt" data-in-effect="swing" data-in-shuffle="true">middle</span> of the span, leaning on the staff in his left hand. But in his other hand <span class="tlt" data-in-effect="flash" data-in-shuffle="true">Glamdring</span> gleamed, cold and white. His enemy halted again, facing him, and the shadow about it reached out like <span class="tlt" data-in-effect="rotateInUpLeft">two vast wings</span>. <span class="tlt" data-in-effect="fadeIn">It raised the whip</span>, and the thongs whined and cracked. <span class="tlt" data-in-effect="shake" data-in-shuffle="true">Fire came from its nostrils</span>. But Gandalf stood <span class="tlt" data-in-effect="fadeInDownBig" data-in-shuffle="true">firm</span>.<br><br>
+
+            <span class="tlt" data-in-effect="fadeIn" data-in-sequence="true">'You cannot pass,'</span> he said. The orcs stood still, and a  <span class="tlt" data-in-effect="fadeInDown" data-in-sequence="true">dead silence fell.</span> 'I am a servant of the Secret Fire, wielder of the  <span class="tlt" data-in-effect="tada" data-in-sequence="true">flame of Anor</span>. You cannot pass. The dark fire will not avail you, flame of Udûn. <span class="tlt" data-in-effect="fadeInDown" data-in-shuffle="true">Go back to the Shadow!</span> You cannot pass.'<br><br>
+
+            The Balrog made <span class="tlt" data-in-effect="fadeInDown" data-in-shuffle="true">no answer</span>. The fire in it seemed to <span class="tlt" data-in-effect="fadeInUp" data-in-sequence="true">die, but the darkness grew</span>. It stepped forward slowly onto the bridge, and suddenly it drew itself up to a great height, and its wings were spread from <span class="tlt" data-in-effect="shake" data-in-sequence="true">wall to wall</span>. But still Gandalf could be seen, <span class="tlt" data-in-effect="flash" data-in-sequence="true">glimmering in the gloom</span>. He seemed small, and altogether alone: grey and bent, like a wizened tree before the onset of  <span class="tlt" data-in-effect="wobble" data-in-sequence="shuffle">a storm.</span><br>
+
+            From out of the shadow <span class="tlt" data-in-effect="bounceInUp" data-in-sequence="true">a red sword leaped flaming.</span><br><br>
+
+            Glamdring glittered <span class="tlt" data-in-effect="flash" data-in-shuffle="true">white</span> in answer.<br><br>
+
+            There was a <span class="tlt" data-in-effect="wobble" data-in-sequence="true">ringing clash</span> and a stab of white fire. The Balrog <span class="tlt" data-in-effect="fadeInDown" data-in-sequence="true">fell back</span> and its sword flew up in molten fragments. The wizard swayed on the bridge, stepped back a pace, and then again stood <span class="tlt" data-in-effect="fadeInRight" data-in-sequence="true">still.</span><br><br>
+
+            <span class="tlt" data-in-effect="shake" data-in-shuffle="true">'You cannot pass!'</span> he said.<br><br>
+
+            With a bound the Balrog leaped full upon the bridge. Its whip <span class="tlt" data-in-effect="rotateIn" data-in-shuffle="true">whirled and hissed.</span><br><br>
+
+            <span class="tlt" data-in-effect="fadeInLeft" data-in-shuffle="true">'He cannot stand alone!'</span> cried Aragorn suddenly and ran back along the bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'<br><br>
+
+            'Gondor!' cried Boromir and leaped after him.<br><br>
+
+            At that moment Gandalf lifted his staff, and crying aloud <span class="tlt" data-in-effect="bounceInDown" data-in-shuffle="true">he smote the bridge before him.</span> The staff broke asunder and fell from his hand. A blinding sheet of <span class="tlt" data-in-effect="flash" data-in-shuffle="true">white flame</span> sprang up. The bridge cracked. Right at the Balrog's feet it broke, and the stone upon which it stood crashed into the gulf, while the rest remained, poised, <span class="tlt" data-in-effect="wobble" data-in-shuffle="true">quivering like a tongue</span> of rock thrust out into emptiness.<br><br>
+
+            With a terrible cry the Balrog 0<span class="tlt" data-in-effect="fadeInDownBig" data-in-sequence="true">fell forward</span>, and its shadow plunged down and vanished. But even as it fell it swung its whip, and the thongs  <span class="tlt" data-in-effect="bounceInLeft" data-in-shuffle="true">lashed and curled about the wizard's knees</span>, dragging him to the brink. He staggered and fell, grasped vainly at the stone, and slid into the abyss. <span class="tlt" data-in-effect="fadeInDown" data-in-sequence="true">'Fly, you fools!'</span> he cried, and was gone.”<br><br>
+            <br><br>
+
+            ― J R R Tolkien, The Fellowship of the Ring
+        
+        </div>
+        
+    </body>
+</html>

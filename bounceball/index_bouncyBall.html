@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>JavaScript Test</title>
+	
+	<meta name="JavaScript Test" content="JavaScript Test">
+	
+  <!-- Mobile-friendly viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Style sheet link -->
+	<link href="style.css" rel="stylesheet" media="all" type="text/css" />
+    
+    <!--<script src="jquery-3.0.0.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    
+    <script>
+
+        $(document).ready(function(){
+            $("#bounceball").click(function(){
+                var div = $("#bounceball");
+                div.animate({top: '-500px', width: '90px', height: '120px'}, 500, 'easeOutSine');
+                div.animate({top: '0px', width: '120px', height: '90px'}, 300, 'easeInQuad');
+                div.animate({top: '-250px', width: '90px', height: '110px'}, 300, 'easeOutQuad');
+                div.animate({top: '0px', width: '110px', height: '90px'}, 200, 'easeInQuad');
+                div.animate({top: '-150px', width: '90px', height: '105px'}, 200, 'easeOutQuad');
+                div.animate({top: '0px', width: '105px', height: '95px'}, 100, 'easeInQuad');
+                div.animate({top: '-100px', width: '95px', height: '105px'}, 100, 'easeOutQuad');
+                div.animate({top: '0px', width: '105px', height: '95px'}, 100, 'easeInQuad');
+                div.animate({top: '-50px', width: '95px', height: '100px'}, 75, 'easeOutQuad');
+                div.animate({top: '0px', width: '100px', height: '100px'}, 75, 'easeInQuad');
+
+            });
+        });
+
+    </script>
+    	
+</head>
+
+<body>
+    
+    <button id="bounce-button">Click me!</button>
+    
+    <div class="center-this">
+    
+        <div id="bounceball"></div>
+        
+    </div>
+
+</body>
+
+</html>

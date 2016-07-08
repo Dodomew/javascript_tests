@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Morphext Example / Demo</title>
+        <meta name="description" content="A simple, high-performance and cross-browser jQuery rotating / carousel plugin for text phrases powered by Animate.css.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="animate.css">
+        <link rel="stylesheet" href="morphext.css">
+        <script type="text/javascript" src="morphext.js"></script>
+        <script type="text/javascript" src="morphext.min.js"></script>
+        <script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+    </head>
+    <body>
+        
+        <!--<div style="text-align:center">
+            I am a <span id="js-rotating-one">Test1, Test2, Test3, Test4</span> Text Rotator
+        </div>-->
+        
+        <div style="text-align:center">
+            I am a <span id="js-rotating-two">Test1, Test2, Test3, Test4, test5</span> Text Rotator
+        </div>
+        
+        <div id="quote-text">
+        
+            <p>
+            
+                “<span id="js-rotating-one">The Balrog </span> reached the bridge. Gandalf stood in the middle of the span, leaning on the staff in his left hand, but in his other hand Glamdring gleamed, cold and white. His enemy halted again, facing him, and the shadow about it reached out like two vast wings. It raised the whip, and the thongs whined and cracked. Fire came from its nostrils. But Gandalf stood firm.<br><br>
+
+'You cannot pass,' he said. The orcs stood still, and a dead silence fell. 'I am a servant of the Secret Fire, wielder of the flame of Anor. You cannot pass. The dark fire will not avail you, flame of Udûn. Go back to the Shadow! You cannot pass.'<br><br>
+
+The Balrog made no answer. The fire in it seemed to die, but the darkness grew. It stepped forward slowly onto the bridge, and suddenly it drew itself up to a great height, and its wings were spread from wall to wall; but still Gandalf could be seen, glimmering in the gloom; he seemed small, and altogether alone: grey and bent, like a wizened tree before the onset of a storm.<br>
+
+From out of the shadow a red sword leaped flaming.<br><br>
+
+Glamdring glittered white in answer.<br><br>
+
+There was a ringing clash and a stab of white fire. The Balrog fell back and its sword flew up in molten fragments. The wizard swayed on the bridge, stepped back a pace, and then again stood still.<br><br>
+
+'You cannot pass!' he said.<br><br>
+
+With a bound the Balrog leaped full upon the bridge. Its whip whirled and hissed.<br><br>
+
+'He cannot stand alone!' cried Aragorn suddenly and ran back along the bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'<br><br>
+
+'Gondor!' cried Boromir and leaped after him.<br><br>
+
+At that moment Gandalf lifted his staff, and crying aloud he smote the bridge before him. The staff broke asunder and fell from his hand. A blinding sheet of white flame sprang up. The bridge cracked. Right at the Balrog's feet it broke, and the stone upon which it stood crashed into the gulf, while the rest remained, poised, quivering like a tongue of rock thrust out into emptiness.<br><br>
+
+With a terrible cry the Balrog fell forward, and its shadow plunged down and vanished. But even as it fell it swung its whip, and the thongs lashed and curled about the wizard's knees, dragging him to the brink. He staggered and fell, grasped vainly at the stone, and slid into the abyss. 'Fly, you fools!' he cried, and was gone.”<br><br>
+
+
+― J.R.R. Tolkien, The Fellowship of the Ring
+            
+            </p>
+        
+        </div>
+
+        <script>window.jQuery || document.write('<script src="jquery-3.0.0.min.js"><\/script>')</script>
+        <script src="morphext.js"></script>
+        
+        <script>
+            
+            $("#js-rotating-one").Morphext({
+                animation: "bounceIn",
+                queue: false,
+                complete: function () {
+                    console.log("This is called after a phrase is animated in! Current phrase index: " + this.index);
+                }
+            });
+        </script>
+            
+        <script>
+            
+            $("#js-rotating-two").Morphext({
+                animation: "rubberBand",
+                queue: false,
+                complete: function () {
+                    console.log("This is called after a phrase is animated in! Current phrase index: " + this.index);
+                }
+            });
+        
+            /*$("#js-rotating-two").Morphext({
+            // The [in] animation type. Refer to Animate.css for a list of available animations.
+                animation: "bounceOut",
+                // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+                separator: ",",
+                // The delay between the changing of each phrase in milliseconds.
+                speed: 2000,
+                complete: function () {
+                    // Called after the entrance animation is executed.
+                }
+            });*/
+        
+        </script>
+        
+
+        
+    </body>
+</html>

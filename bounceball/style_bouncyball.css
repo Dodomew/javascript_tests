@@ -1,0 +1,25 @@
+.center-this
+{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    bottom: 0px;
+    position: absolute;
+}
+
+html, body
+{
+    overflow-x: hidden;
+}
+
+#bounceball
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    position: relative;
+    margin: auto;
+}

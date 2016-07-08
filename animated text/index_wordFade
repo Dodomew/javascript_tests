@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Morphext Example / Demo</title>
+        <meta name="description" content="A simple, high-performance and cross-browser jQuery rotating / carousel plugin for text phrases powered by Animate.css.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="animate.css">
+        <link rel="stylesheet" href="morphext.css">
+        <script type="text/javascript" src="morphext.js"></script>
+        <script type="text/javascript" src="morphext.min.js"></script>
+        <script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+        
+    </head>
+    <body>       
+
+        
+        
+    </body>
+</html>
